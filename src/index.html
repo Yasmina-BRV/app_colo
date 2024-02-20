@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Project</title>
+    <title>Chatbot-io</title>
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   </head>
   <body>
-    <div id="app"></div>
+    <div class="root">
+      <div id="container-fluid">
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="https://cdn.pixabay.com/photo/2012/04/14/16/21/sun-34485_960_720.png" class="rounded-start" alt="logo" style="width: 80px; height: 80px;">
+            <span>Chatbot</span>
+          </a>
+        </div>
+      </nav>
+      <div class="row">
+        <div class="col-3">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <img src="https://cdn1.iconfinder.com/data/icons/m-m-s/512/696495-512x512.png" class="rounded-start" alt="red m&m" style="width: 70px; height: 70px;">
+              <span>Red M&M</span>
+              <span class="badge bg-primary rounded-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <img src="https://cdn1.iconfinder.com/data/icons/m-m-s/512/696491-512x512.png" class="rounded-start" alt="yellow m&m" style="width: 70px; height: 70px;">
+              <span>Yellow M&M</span>
+              <span class="badge bg-primary rounded-pill">2</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <img src="https://cdn1.iconfinder.com/data/icons/m-m-s/512/696509-512x512.png" class="rounded-start" alt="blue m&m" style="width: 70px; height: 70px;">
+              <span>Blue M&M</span>
+              <span class="badge bg-primary rounded-pill">1</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-9">
+          <div class="card mb-2">
+            <div class="row g-0">
+              <div class="col-md-1">
+                <img src="https://cdn.pixabay.com/photo/2012/04/14/16/21/sun-34485_960_720.png" class="img-fluid rounded-start" alt="me" style="width: 70px; height: 70px;">
+              </div>
+              <div class="col-md-11">
+                <div class="card-body">
+                  <h5 class="card-title">Me</h5>
+                  <p class="card-text"><small class="text-body-secondary">02-13-2024 3pm</small></p>
+                  <p class="card-text">Hello!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="row g-0">
+              <div class="col-md-1">
+                <img src="https://cdn1.iconfinder.com/data/icons/m-m-s/512/696509-512x512.png" class="img-fluid rounded-start" alt="blue m&m" style="width: 70px; height: 70px;">
+              </div>
+              <div class="col-md-11">
+                <div class="card-body">
+                  <h5 class="card-title">Blue M&M</h5>
+                  <p class="card-text"><small class="text-body-secondary">02-16-2024 4pm</small></p>
+                  <p class="card-text">Hi there!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-2">
+            <input type="text" class="form-control" placeholder="Your message here" aria-label="Message" aria-describedby="i">
+            <button class="btn btn-outline-secondary" type="button" id="button">Send</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    
   </body>
 </html>

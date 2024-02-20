@@ -1,11 +1,11 @@
-import toto from './toto.png';
+import Router from './Router';
+import Bot from './controllers/Bot';
 
 import './index.scss';
 
-const hello = 'hello';
-document.body.innerHTML = ` 
-  <h1>Hello Toto !</h1>
-  <img width="300" src="${toto}" alt="toto">
-`;
+const routes = [{
+  url: '/search',
+  controller: Bot
+}];
 
-console.log(hello);
+new Router(routes);
