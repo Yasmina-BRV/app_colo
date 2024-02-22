@@ -1,11 +1,11 @@
 import Router from './Router';
-import Bot from './controllers/Bot';
+import ChatBot from './controllers/ChatBot';
 
 import './index.scss';
 
 const routes = [{
-  url: '/search',
-  controller: Bot
+  url: '/',
+  controller: ChatBot
 }];
 
 new Router(routes);
