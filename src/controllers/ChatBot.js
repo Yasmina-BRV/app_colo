@@ -22,11 +22,14 @@ const ChatBot = class {
             ${viewListBots()}
           </div>
           <div class="col-9">
-            ${viewListMessages()}
-            <div class="align-self-end">
+            <div class="row">
+              ${viewListMessages()}
+            </div>
+            <div class="row">
               ${viewInput()}
             </div>
           </div>
+        </div>
       </div>
     `;
   }
