@@ -2,41 +2,109 @@ import viewNav from '../views/nav';
 import viewListBots from '../views/chatbot/list-bots';
 import viewListMessages from '../views/chatbot/list-messages';
 import viewInput from '../views/chatbot/input';
+import Bot from './Bot';
 
-const ChatBot = class {
-  constructor(params) {
+class ChatBot {
+  constructor() {
     this.el = document.querySelector('#root');
-    this.params = params;
+    this.bots = [new Bot('Aurora Assistant')];
+    this.messages = []; 
+    this.init();
+  }
 
-    this.run();
+  init() {
+    this.render();
+    this.initEventListeners();
+    setTimeout(() => {
+      this.addBotMessage(this.bots[0].name, "Bonjour, je suis l'assistant Aurora. En quoi puis-je vous aider ?");
+    }, 1000);
   }
 
   render() {
-    return `
+    this.el.innerHTML = `
       <div class="container-fluid">
+        ${viewNav()}
         <div class="row">
-          <div class="col-12">${viewNav()}</div>
-        </div>
-        <div class="row">
-          <div class="col-3">
-            ${viewListBots()}
-          </div>
+          <div class="col-3">${viewListBots(this.bots)}</div>
           <div class="col-9">
-            <div class="row">
-              ${viewListMessages()}
-            </div>
-            <div class="row">
-              ${viewInput()}
-            </div>
+            <div class="messages-container">${viewListMessages(this.messages)}</div>
+            ${viewInput()}
           </div>
         </div>
-      </div>
-    `;
+      </div>`;
+    this.scrollToLatestMessage();
   }
 
-  run() {
-    this.el.innerHTML = this.render();
+  initEventListeners() {
+    const input = this.el.querySelector('input[type="text"]');
+    const button = this.el.querySelector('button#button-addon');
+    button.addEventListener('click', () => this.handleSendMessage(input.value));
+    input.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        const text = input.value.trim();
+        if (text) {
+          this.handleSendMessage(text);
+          input.value = '';
+        }
+      }
+    });
   }
-};
+
+  handleSendMessage(text) {
+    this.addUserMessage('Utilisateur', text);
+    this.messages = [];
+    switch (text.toLowerCase()) {
+      case 'weather':
+        this.bots[0].fetchWeatherInfo().then((response) => {
+          this.addBotMessage(this.bots[0].name, response);
+        });
+        break;
+      case 'help':
+        this.handleHelpCommand();
+        break;
+      case 'greet':
+        this.addBotMessage(this.bots[0].name, 'Bonjour ! Comment puis-je vous aider ?');
+        break;
+      default:
+        this.bots.forEach((bot) => {
+          bot.respondTo(text).then((response) => {
+            this.addBotMessage(bot.name, response);
+            setTimeout(() => {
+              this.scrollToLatestMessage();
+            }, 100); 
+          });
+        });
+        break;
+    }
+  }
+
+  handleHelpCommand() {
+    const availableCommands = this.bots[0].getAvailableCommands();
+    this.addBotMessage(this.bots[0].name, `Commandes disponibles: ${availableCommands}`);
+  }
+
+  addUserMessage(sender, text) {
+    const timestamp = new Date();
+    this.addMessage(sender, text, timestamp);
+    this.render();
+  }
+
+  addBotMessage(sender, text) {
+    const timestamp = new Date();
+    this.addMessage(sender, text, timestamp);
+    this.render();
+  }
+
+  addMessage(sender, text, timestamp) {
+    this.messages.push({ sender, text, timestamp });
+    localStorage.setItem('chatbotMessages', JSON.stringify(this.messages));
+  }
+
+  scrollToLatestMessage() {
+    const messagesContainer = this.el.querySelector('.messages-container');
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+}
 
 export default ChatBot;
