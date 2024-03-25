@@ -11,6 +11,13 @@ const ChatBot = class {
     this.run();
   }
 
+  //object.onkeyup = function () {sendMessage()}
+
+  //function sendMessage () {
+    //let userInput = document.getElementByClass("input-group").value;
+    //document.getElementByClass("card-text").innerText = "Word send" + userInput;
+  //}
+
   render() {
     return `
       <div class="container-fluid">

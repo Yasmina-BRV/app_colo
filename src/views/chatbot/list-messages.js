@@ -1,9 +1,9 @@
-import viewItemMessage from './item-message';
+import viewBotMessage from './bot-message';
+import viewUserMessage from './user-message';
 
 export default () => (`
   <ul>
-    ${viewItemMessage()}
-    ${viewItemMessage()}
-    ${viewItemMessage()}
+    ${viewBotMessage()}
+    ${viewUserMessage()}
   </ul>
 `);
