@@ -38,12 +38,11 @@ const ChatBot = class {
   }
 
   run() {
-    this.el.innerHTML = this.render();
-
     axios
       .get('http://localhost/user/1')
       .then((response) => {
-        this.data = response.data;
+        const { data } = response; // to modify
+        this.data = response.data; // to modify
       });
 
     this.el.innerHTML = this.render();
