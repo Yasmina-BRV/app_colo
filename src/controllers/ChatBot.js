@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import viewNav from '../views/nav';
 import viewListBots from '../views/chatbot/list-bots';
 import viewListMessages from '../views/chatbot/list-messages';
@@ -7,16 +9,10 @@ const ChatBot = class {
   constructor(params) {
     this.el = document.querySelector('#root');
     this.params = params;
+    this.data = [];
 
     this.run();
   }
-
-  //object.onkeyup = function () {sendMessage()}
-
-  //function sendMessage () {
-    //let userInput = document.getElementByClass("input-group").value;
-    //document.getElementByClass("card-text").innerText = "Word send" + userInput;
-  //}
 
   render() {
     return `
@@ -42,6 +38,14 @@ const ChatBot = class {
   }
 
   run() {
+    this.el.innerHTML = this.render();
+
+    axios
+      .get('http://localhost/user/1')
+      .then((response) => {
+        this.data = response.data;
+      });
+
     this.el.innerHTML = this.render();
   }
 };
