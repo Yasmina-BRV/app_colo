@@ -8,7 +8,7 @@ class ChatBot {
   constructor() {
     this.el = document.querySelector('#root');
     this.bots = [new Bot('Aurora Assistant')];
-    this.messages = []; 
+    this.messages = [];
     this.init();
   }
 
@@ -22,31 +22,30 @@ class ChatBot {
 
   render() {
     this.el.innerHTML = `
-      <div class="container-fluid">
-        ${viewNav()}
-        <div class="row">
-          <div class="col-3">${viewListBots(this.bots)}</div>
-          <div class="col-9">
-            <div class="messages-container">${viewListMessages(this.messages)}</div>
-            ${viewInput()}
-          </div>
-        </div>
-      </div>`;
+            <div class="container-fluid">
+                ${viewNav()}
+                <div class="row">
+                    <div class="col-3">${viewListBots(this.bots)}</div>
+                    <div class="col-9">
+                        <div class="messages-container">${viewListMessages(this.messages)}</div>
+                        ${viewInput()}
+                    </div>
+                </div>
+            </div>`;
     this.scrollToLatestMessage();
   }
 
   initEventListeners() {
     const input = this.el.querySelector('input[type="text"]');
     const button = this.el.querySelector('button#button-addon');
-    button.addEventListener('click', () => this.handleSendMessage(input.value));
+    button.addEventListener('click', () => {
+      this.handleSendMessage(input.value);
+    });
     input.addEventListener('keypress', (event) => {
       if (event.key === 'Enter') {
         event.preventDefault();
-        const text = input.value.trim();
-        if (text) {
-          this.handleSendMessage(text);
-          input.value = '';
-        }
+        this.handleSendMessage(input.value);
+        input.value = '';
       }
     });
   }
@@ -72,7 +71,7 @@ class ChatBot {
             this.addBotMessage(bot.name, response);
             setTimeout(() => {
               this.scrollToLatestMessage();
-            }, 100); 
+            }, 100);
           });
         });
         break;
@@ -106,5 +105,4 @@ class ChatBot {
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
 }
-
 export default ChatBot;
