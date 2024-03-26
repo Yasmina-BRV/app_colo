@@ -14,7 +14,8 @@ const ChatBot = class {
     this.run();
   }
 
-  render() {
+  render(data) {
+    const { messages } = data;
     return `
       <div class="container-fluid">
         <div class="row">
@@ -26,7 +27,7 @@ const ChatBot = class {
           </div>
           <div class="col-9">
             <div class="row">
-              ${viewListMessages()}
+              ${viewListMessages(messages)}
             </div>
             <div class="row">
               ${viewInput()}
@@ -39,13 +40,12 @@ const ChatBot = class {
 
   run() {
     axios
-      .get('http://localhost/user/1')
+      .get('http://localhost/messages')
       .then((response) => {
-        const { data } = response; // to modify
-        this.data = response.data; // to modify
+        this.el.innerHTML = this.render({
+          messages: response.data
+        });
       });
-
-    this.el.innerHTML = this.render();
   }
 };
 

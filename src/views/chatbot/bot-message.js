@@ -1,11 +1,11 @@
-export default (messages) => {
+export default (message) => {
   const {
     author,
     avatar,
     type,
     date,
     text
-  } = messages.user;
+  } = message;
 
   return `
     <div class="col-3">

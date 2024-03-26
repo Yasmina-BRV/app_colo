@@ -1,9 +1,9 @@
-export default (data) => {
+export default (message) => {
   const {
     name: { firstName, lastName },
     promo,
     school
-  } = data.user;
+  } = message.user;
 
   return `
     <div class="col-3">
