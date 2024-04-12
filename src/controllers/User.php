@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\Usermodel;
+use App\Models\UserModel;
 
 class User {
   protected array $params;
