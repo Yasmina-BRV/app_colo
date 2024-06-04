@@ -15,7 +15,7 @@ class SqlConnect {
   public function __construct() {
     $this->host = '127.0.0.1';
     $this->port = '3306';
-    $this->dbname = 'chatbot_io';
+    $this->dbname = 'app_colo';
     $this->user = 'ybravo';
     $this->password = '123';
 

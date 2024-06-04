@@ -6,14 +6,15 @@ use \PDO;
 use stdClass;
 
 class UserModel extends SqlConnect {
-    public function add(array $data) {
-      $query = "
-        INSERT INTO users (first_name, last_name, promo, school)
-        VALUES (:firstname, :lastname, :promo, :school)
-      ";
-
+    public function add($data) {
+      $query = "INSERT INTO users (last_name, first_name, email, password) VALUES (:last_name, :first_name, :email, :password)";
       $req = $this->db->prepare($query);
-      $req->execute($data);
+      $req->execute([
+        'last_name' => $data['last_name'],
+        'first_name' => $data['first_name'],
+        'email' => $data['email'],
+        'password' => $data['password']
+      ]);
     }
 
     public function delete(int $id) {
@@ -33,5 +34,13 @@ class UserModel extends SqlConnect {
       $req->execute();
 
       return $req->rowCount() > 0 ? $req->fetch(PDO::FETCH_ASSOC) : new stdClass();
+    }
+
+    public function checkEmail($email) {
+      $req = $this->db->prepare("SELECT id FROM users WHERE email = :email");
+      $req->execute(["email" => $email]);
+      $user = $req->fetch(PDO::FETCH_ASSOC);
+
+      return $user !== false;
     }
 }

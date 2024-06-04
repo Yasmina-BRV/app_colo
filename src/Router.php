@@ -66,7 +66,7 @@ class Router {
 
       echo json_encode([
         'code' => '404',
-        'message' => 'Not Found'
+        'message' => 'Error 404 : Page Not Found'
       ]);
     }
   }

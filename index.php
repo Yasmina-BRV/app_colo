@@ -4,13 +4,11 @@ require 'vendor/autoload.php';
 
 use App\Router;
 use App\Controllers\User;
-use App\Controllers\Messages;
-use App\Controllers\Bots;
-use App\Controllers\Actions;
+use App\Controllers\Login;
+use App\Controllers\Register;
 
 new Router([
   'user/:id' => User::class,
-  'messages' => Messages::class,
-  'bots' => Bots::class,
-  'actions/:keyword' => Actions::class
+  'login' => Login::class,
+  'register' => Register::class
 ]);
