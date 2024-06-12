@@ -54,6 +54,10 @@ export default () => (`
           </tbody>
         </table>
       </div>
+      <div class="card-footer bg-warning">
+        <a class="btn bg-black text-white" href="#" role="button">Ajouter un événement</a>
+        <a class="btn bg-black text-white" href="#" role="button">Modifier un événement</a>
+      </div>
     </div>
   </div>
     `);

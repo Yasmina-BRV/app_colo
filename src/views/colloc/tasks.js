@@ -63,7 +63,7 @@ export default () => (`
       <div class="card-footer bg-warning">
         <a class="btn bg-black text-white" href="#" role="button">Créer une tâche</a>
         <a class="btn bg-black text-white" href="#" role="button">Modifier une tâche</a>
-        </div>
+      </div>
     </div>
   </div>
   

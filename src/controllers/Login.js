@@ -44,6 +44,8 @@ const Login = class {
         password: passwordInput
       }).then((response) => {
         if (response.data.status === 'success') {
+          document.cookie = response.data.cookie;
+          // document.cookie = "username=Yasmina Bravo; expires=Mon, 17 Jun 2024 17:00:00 UTC;";
           window.location.href = '/homepage';
         } else {
           window.location.href = '/login';
@@ -64,6 +66,7 @@ const Login = class {
         password: passwordInput
       }).then((response) => {
         if (response.data.status === 'success') {
+          document.cookie = response.data.cookie;
           window.location.href = '/homepage';
         } else {
           window.location.href = '/login';
