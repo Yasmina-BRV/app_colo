@@ -22,10 +22,15 @@ class Login extends Controller {
       return;
     }
 
-    $userPassword = $this->loginModel->getByEmail($email);
+    $userData = $this->loginModel->getByEmail($email);
 
-    if ($userPassword && password_verify($password, $userPassword["password"])) {
-      echo json_encode(["status" => "success", "session" => $userPassword["first_name"]]);
+    if ($userData && password_verify($password, $userData["password"])) {
+
+      $user = $userData["name"];
+
+      $cookie = "username=$user; expires=Mon, 15 Jun 2026 17:00:00 UTC;";
+
+      echo json_encode(["status" => "success", "first_name" => $userData["first_name"], "cookie" => $cookie]);
     } else {
       echo json_encode(["status" => "fail", "message" => "Invalid credentials"]);
     }
