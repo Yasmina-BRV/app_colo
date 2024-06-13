@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 import viewNav from '../views/nav';
 import viewFooter from '../views/footer';
@@ -44,8 +45,7 @@ const Login = class {
         password: passwordInput
       }).then((response) => {
         if (response.data.status === 'success') {
-          document.cookie = response.data.cookie;
-          // document.cookie = "username=Yasmina Bravo; expires=Mon, 17 Jun 2024 17:00:00 UTC;";
+          Cookies.set('session_id', response.data.session_id, { expires: 365 });
           window.location.href = '/homepage';
         } else {
           window.location.href = '/login';
@@ -66,7 +66,7 @@ const Login = class {
         password: passwordInput
       }).then((response) => {
         if (response.data.status === 'success') {
-          document.cookie = response.data.cookie;
+          Cookies.set('registerNameCookie', 'registerValueCookie', { expires: 365 });
           window.location.href = '/homepage';
         } else {
           window.location.href = '/login';

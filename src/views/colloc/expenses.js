@@ -73,6 +73,60 @@ export default () => (`
     </div>
   </div>
   <div class="container my-5">
+    <div class="card">
+      <div class="card-header bg-warning">
+        <h5 class="card-title text-center">Saisie de dépense</h5>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label" for="category">Catégorie</label>
+            <select class="form-select" id="inputCategory02" required>
+              <option selected disabled value="">Sélectionnez une catégorie</option>
+              <option>Courses</option>
+              <option>Lessive</option>
+              <option>Ménage</option>
+              <option>Vaiselle</option>
+              <option>Cuisine</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="description">Payé par</label>
+            <input type="text" class="form-control" id="inputPaidBy02">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="description">Montant</label>
+            <input type="number" class="form-control" id="inputAmount02" placeholder="0.01" step="0.01" min="0" max="1000">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="date">Le</label>
+            <input type="date" class="form-control" id="inputDate02">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="description">Participent à parts égales</label>
+            <input type="text" class="form-control" id="inputPaidBy02">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="description">Montant par personne</label>
+            <input type="number" class="form-control" id="inputAmount02" placeholder="0.01" step="0.01" min="0" max="1000">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="status">Statut</label>
+            <select class="form-select" id="validationStatus02" required>
+              <option selected disabled value="">Sélectionnez un statut</option>
+              <option>A Faire</option>
+              <option>En cours</option>
+              <option>Terminé</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer bg-warning text-center">
+        <button type="button" class="loginButton btn bg-black text-white">Saisir une dépense</button>
+      </div>
+    </div>
+  </div>
+  <div class="container my-5">
     <div class="card text-center">
       <div class="card-header bg-warning">
         <h5 class="card-title">Suivi de paiements effectués</h5>
@@ -92,8 +146,10 @@ export default () => (`
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
+              <td>xxx</td>
             </tr>
             <tr class="bg-black text-white">
+              <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
@@ -102,8 +158,10 @@ export default () => (`
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
+              <td>xxx</td>
             </tr>
             <tr class="bg-black text-white">
+              <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
@@ -133,8 +191,10 @@ export default () => (`
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
+              <td>xxx</td>
             </tr>
             <tr class="bg-black text-white">
+              <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
@@ -143,8 +203,10 @@ export default () => (`
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
+              <td>xxx</td>
             </tr>
             <tr class="bg-black text-white">
+              <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
@@ -174,8 +236,10 @@ export default () => (`
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
+              <td>xxx</td>
             </tr>
             <tr class="bg-black text-white">
+              <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
@@ -184,8 +248,10 @@ export default () => (`
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
+              <td>xxx</td>
             </tr>
             <tr class="bg-black text-white">
+              <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>
               <td>xxx</td>

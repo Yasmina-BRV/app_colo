@@ -27,7 +27,7 @@ const Tasks = class {
     `;
   }
 
-  run() {
+  async run() {
     this.el.innerHTML = this.render();
   }
 };
