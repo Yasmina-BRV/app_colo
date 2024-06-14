@@ -16,6 +16,7 @@ class Login extends Controller {
   public function postLogin() {
     $email = $this->body["email"];
     $password = $this->body["password"];
+    $id = $this->body["id"];
 
     if (empty($email) || (empty($password))) {
       echo json_encode(["status" => "fail", "message" => "All fields are required!"]);
@@ -26,11 +27,13 @@ class Login extends Controller {
 
     if ($userData && password_verify($password, $userData["password"])) {
 
-      $user = $userData["name"];
+      session_start(); 
+      $session_id = session_id();
 
-      $cookie = "username=$user; expires=Mon, 15 Jun 2026 17:00:00 UTC;";
+      header('HTTP/1.1 200 OK');
 
-      echo json_encode(["status" => "success", "first_name" => $userData["first_name"], "cookie" => $cookie]);
+      echo json_encode(["status" => "success", "session_id" => $session_id]);
+
     } else {
       echo json_encode(["status" => "fail", "message" => "Invalid credentials"]);
     }
