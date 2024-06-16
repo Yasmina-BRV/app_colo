@@ -14,7 +14,7 @@ export default () => (`
         </ul>
       </div>
       <div class="card-footer bg-warning">
-        <a class="btn bg-black text-white" href="tasks" role="button">Voir plus</a>
+        <a class="btn bg-black text-white" href="task" role="button">Voir plus</a>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ export default () => (`
         </ul>
       </div>
       <div class="card-footer bg-warning">
-        <a class="btn bg-black text-white" href="expenses" role="button">Voir plus</a>
+        <a class="btn bg-black text-white" href="expense" role="button">Voir plus</a>
       </div>
     </div>
   </div>
@@ -93,7 +93,7 @@ export default () => (`
         </table>
       </div>
       <div class="card-footer bg-warning">
-        <a class="btn bg-black text-white" href="calendar" role="button">Voir plus</a>
+        <a class="btn bg-black text-white" href="event" role="button">Voir plus</a>
       </div>
     </div>
   </div>

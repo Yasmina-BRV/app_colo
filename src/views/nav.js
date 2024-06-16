@@ -13,13 +13,16 @@ const nav = () => (`
             <a class="nav-link" href="homepage">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tasks">Tâches</a>
+            <a class="nav-link" href="task">Tâches</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="expenses">Dépenses</a>
+            <a class="nav-link" href="expense">Dépenses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="calendar">Calendrier</a>
+            <a class="nav-link" href="event">Calendrier</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile">Profil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="login">Inscription/Connexion</a>

@@ -3,9 +3,9 @@ import Router from './Router';
 import Collocation from './controllers/Collocation';
 import Login from './controllers/Login';
 import Profile from './controllers/Profile';
-import Tasks from './controllers/Tasks';
-import Expenses from './controllers/Expenses';
-import Calendar from './controllers/Calendar';
+import Task from './controllers/Task';
+import Expense from './controllers/Expense';
+import Event from './controllers/Event';
 
 import './index.scss';
 
@@ -22,16 +22,16 @@ const routes = [{
   controller: Profile
 },
 {
-  url: '/tasks',
-  controller: Tasks
+  url: '/task',
+  controller: Task
 },
 {
-  url: '/expenses',
-  controller: Expenses
+  url: '/expense',
+  controller: Expense
 },
 {
-  url: '/calendar',
-  controller: Calendar
+  url: '/event',
+  controller: Event
 }
 ];
 
