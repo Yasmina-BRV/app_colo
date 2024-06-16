@@ -5,7 +5,7 @@ namespace App\Models;
 use \PDO;
 use stdClass;
 
-class ExpensesModel extends SqlConnect{
+class ExpenseModel extends SqlConnect{
   public function add(array $data) {
     $query = "
       INSERT INTO expenses (category, paid_by, amount, date, participant, amount_per_person, status)
@@ -33,5 +33,12 @@ class ExpensesModel extends SqlConnect{
     $req->execute();
 
     return $req->rowCount() > 0 ? $req->fetch(PDO::FETCH_ASSOC) : new stdClass();
+  }
+
+  public function getAll(){
+    $req = $this->db->prepare("SELECT * FROM expenses");
+    $req->execute();
+
+    return $req->rowCount() > 0 ? $req->fetchAll(PDO::FETCH_ASSOC) : new stdClass();
   }
 }

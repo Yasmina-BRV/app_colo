@@ -16,7 +16,7 @@ class Login extends Controller {
   public function postLogin() {
     $email = $this->body["email"];
     $password = $this->body["password"];
-    $id = $this->body["id"];
+    // $id = $this->body["id"];
 
     if (empty($email) || (empty($password))) {
       echo json_encode(["status" => "fail", "message" => "All fields are required!"]);

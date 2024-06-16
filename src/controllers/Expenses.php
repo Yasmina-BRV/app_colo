@@ -1,30 +1,20 @@
-<?php 
+<?php
 
 namespace App\Controllers;
 
 use App\Controllers\Controller;
-use App\Models\ExpensesModel;
+use App\Models\ExpenseModel;
 
-class Expenses extends Controller{
-  protected object $task;
+class Expenses extends Controller {
+  protected object $expenses;
 
   public function __construct($param) {
-    $this->task = new ExpensesModel();
+    $this->expenses = new ExpenseModel();
 
     parent::__construct($param);
   }
 
-  public function postExpenses() {
-    $this->task->add($this->body);
-
-    return $this->task->getLast();
-  }
-
-  public function deleteExpenses() {
-    return $this->task->delete(intval($this->params['id']));
-  }
-
   public function getExpenses() {
-    return $this->task->get(intval($this->params['id']));
+    return $this->expenses->getAll();
   }
 }

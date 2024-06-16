@@ -6,25 +6,42 @@ use App\Controllers\Controller;
 use App\Models\EventModel;
 
 class Event extends Controller {
-  protected object $event;
+  protected object $eventModel;
 
   public function __construct($param) {
-    $this->event = new EventModel();
+    $this->eventModel = new EventModel();
 
     parent::__construct($param);
   }
 
   public function postEvent() {
-    $this->event->add($this->body);
+    $date = $this->body['date']?? ''; 
+    $category = $this->body['category'] ?? '';
+    $description =  $this->body['description']?? '';
+    $head = $this->body['head']?? '';
+    $priority = $this->body['priority']?? ''; 
+  
+    $event = [
+      'date' => $date, 
+      'category' => $category,
+      'description' => $description,
+      'head' => $head,
+      'priority' => $priority
+    ];
 
-    return $this->event->getLast();
+    $this->eventModel->add($event);
+    echo json_encode(["status" => "success", "message" => "New event added!"]);
+
+    $this->eventModel->add($this->body);
+
+    return $this->eventModel->getLast();
   }
 
   public function deleteEvent() {
-    return $this->event->delete(intval($this->params['id']));
+    return $this->eventModel->delete(intval($this->params['id']));
   }
 
   public function getEvent() {
-    return $this->event->get(intval($this->params['id']));
+    return $this->eventModel->get(intval($this->params['id']));
   }
 }

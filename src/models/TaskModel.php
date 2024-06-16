@@ -8,8 +8,8 @@ use stdClass;
 class TaskModel extends SqlConnect{
   public function add(array $data) {
     $query = "
-      INSERT INTO tasks (name, category, head, desription, limit_date, priority, status)
-      VALUES (:name, :category, :head, :desription, :limit_date, :priority, :status)
+      INSERT INTO tasks (category, head, desription, limit_date, priority, status)
+      VALUES (:category, :head, :desription, :limit_date, :priority, :status)
     ";
 
     $req = $this->db->prepare($query);
@@ -33,5 +33,12 @@ class TaskModel extends SqlConnect{
     $req->execute();
 
     return $req->rowCount() > 0 ? $req->fetch(PDO::FETCH_ASSOC) : new stdClass();
+  }
+
+  public function getAll(){
+    $req = $this->db->prepare("SELECT * FROM tasks");
+    $req->execute();
+
+    return $req->rowCount() > 0 ? $req->fetchAll(PDO::FETCH_ASSOC) : new stdClass();
   }
 }
