@@ -32,3 +32,9 @@ Analyse the coding rules with :
 ```bash
 npm run lint
 ```
+Notes afin de visualier le site dans son ensemble : 
+La branche main contient la dernière version du front.
+
+La branche back contient la dernière version du back.
+
+Il faut ajouter /homepage après http://127.0.0.1:9090 afin d'accéder à la page d'accueil.
